@@ -427,13 +427,14 @@ https://templatemo.com/tm-567-nomad-force
                                 </div>
 
                                 <div class="col-lg-5 col-12 mx-auto mt-5">
-                                    <button type="submit" onsubmit="submitForm(event.preventDefault())" class="form-control">Merche Trial - Sign up!</button>
+                                    <button type="submit" onsubmit="return submitForm(event)" class="form-control">Merche Trial - Sign up!</button>
                                 </div>
                             </form>
                         </div>
                         <script>
                             
-                        function submitForm() {
+                        function submitForm(event) {
+                             event.preventDefault();
                           var data = JSON.stringify({
                               "name": document.getElementById('name').value,
                               "email": document.getElementById('email').value,
