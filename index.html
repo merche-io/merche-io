@@ -374,7 +374,7 @@ https://templatemo.com/tm-567-nomad-force
 
                             <h2 class="mb-4 text-center" data-aos="fade-up">Test our online shop solution! Free.</h2>
 
-                            <form onsubmit="return submitForm(event)" class="contact-form" role="form" data-aos="fade-up">
+                            <form onsubmit="return submitForm(event)" class="contact-form" id = "form1" role="form" data-aos="fade-up">
 
                                 <div class="row">
                                     
@@ -427,15 +427,20 @@ https://templatemo.com/tm-567-nomad-force
                                 </div>
 
                                 <div class="col-lg-5 col-12 mx-auto mt-5">
-                                    <button type="submit"  class="form-control">Merche Trial - Sign up!</button>
+                                    <button type="submit" id = "sub"  class="form-control">Merche Trial - Sign up!</button>
                                 </div>
                             </form>
                         </div>
                         <script>
                             
-                        function submitForm(event) {
-                             event.preventDefault();
-                          var data = JSON.stringify({
+                        function submitForm(event) {   
+                            
+                            event.preventDefault();
+                          
+                            var button = document.getElementById('sub').disabled = true;
+     
+                            
+                            var data = JSON.stringify({
                               "name": document.getElementById('name').value,
                               "email": document.getElementById('email').value,
                               "message": document.getElementById('message').value
@@ -443,6 +448,8 @@ https://templatemo.com/tm-567-nomad-force
 
                                 var xhr = new XMLHttpRequest();
                                     //xhr.withCredentials = true;
+                            
+                           
 
                             xhr.addEventListener("readystatechange", function () {
                              if (this.readyState === 4) {
@@ -456,6 +463,8 @@ https://templatemo.com/tm-567-nomad-force
                                 document.getElementById('name').value = "";
                                 document.getElementById('email').value = "";
                                 document.getElementById('message').value = "";
+                                 
+                             var button = document.getElementById('sub').disabled = false;
                                  
                                  }
                                 });
