@@ -427,10 +427,42 @@ https://templatemo.com/tm-567-nomad-force
                                 </div>
 
                                 <div class="col-lg-5 col-12 mx-auto mt-5">
-                                    <button type="submit" class="form-control">Merche Trial - Sign up!</button>
+                                    <button type="button" onclick="submitForm()" class="form-control">Merche Trial - Sign up!</button>
                                 </div>
                             </form>
                         </div>
+                        <script>
+                            
+                        function submitForm() {
+                          var data = JSON.stringify({
+                              "name": documend.getElementById('name'),
+                              "email": document.getElementById('email'),
+                              "message": document.getElementById('message')
+                                });
+
+                                var xhr = new XMLHttpRequest();
+                                    //xhr.withCredentials = true;
+
+                            xhr.addEventListener("readystatechange", function () {
+                             if (this.readyState === 4) {
+                                  console.log(this.responseText);
+                                     if (this.status === 200) {
+                                         console.log('successful');
+                                         alert("Email sent");
+                                      } else {
+                                         console.log('failed');
+                                      }
+                                 
+                                 }
+                                });
+
+                            xhr.open("POST", "https://64hia144ce.execute-api.us-east-2.amazonaws.com/Prod/send");
+                            xhr.setRequestHeader("content-type", "application/json");
+                            xhr.setRequestHeader("cache-control", "no-cache");
+
+                            xhr.send(data);  
+                        }
+                        </script>
 
                     </div>
                 </div>
