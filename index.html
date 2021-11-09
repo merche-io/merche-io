@@ -427,7 +427,7 @@ https://templatemo.com/tm-567-nomad-force
                                 </div>
 
                                 <div class="col-lg-5 col-12 mx-auto mt-5">
-                                    <button type="button" onclick="submitForm()" class="form-control">Merche Trial - Sign up!</button>
+                                    <button type="button" onsubmit="submitForm(event.preventDefault())" class="form-control">Merche Trial - Sign up!</button>
                                 </div>
                             </form>
                         </div>
@@ -452,6 +452,9 @@ https://templatemo.com/tm-567-nomad-force
                                       } else {
                                          console.log('failed');
                                       }
+                                document.getElementById('name').value = "";
+                                document.getElementById('email').value = "";
+                                document.getElementById('message').value = "";
                                  
                                  }
                                 });
